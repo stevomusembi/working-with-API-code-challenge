@@ -29,7 +29,7 @@
 
                     <script>
                         // adding a map and tiles using leaflet.js
-                        const mymap = L.map('issMap').setView([0, 0], 1);
+                        const mymap = L.map('issMap').setView([0, 0], 2);
                         const attribution =
                             '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors';
                         const tileUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
@@ -55,12 +55,13 @@
                             //set marker to current lat and long view and zoom
                             mymap.setView([latitude, longitude], mymap.getZoom());
                             marker.setLatLng([latitude, longitude]);
-                            document.getElementById('lat').textContent = latitude;
-                            document.getElementById('lon').textContent = longitude;
+                            document.getElementById('lat').textContent = latitude.toFixed(2);
+                            document.getElementById('lon').textContent = longitude.toFixed(2);
 
                         }
 
                         getIss();
+                        setInterval(getIss, 1000);
                     </script>
 
 </body>
